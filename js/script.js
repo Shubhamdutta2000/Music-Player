@@ -78,12 +78,15 @@ function updateProgress(e) {
 
 // Set progress bar
 function setProgress(e) {
-  const width = this.offsetWidth;
+  const width = this.clientWidth; // this.offsetWidth
   const clickX = e.offsetX;
   const duration = audio.duration;
 
   audio.currentTime = (clickX / width) * duration;
 }
+
+// clientWidth: the inner width of an element includes padding but excludes borders, margins
+// offsetWidth: viewable width of an element including padding, border and scrollbar, but not the margin.
 
 // Event listeners
 playBtn.addEventListener("click", () => {
